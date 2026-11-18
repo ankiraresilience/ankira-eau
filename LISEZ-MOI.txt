@@ -1,0 +1,23 @@
+# ANKIRA Eau — PWA
+
+## Contenu
+- `index.html` : application ANKIRA Eau d'origine, enrichie pour être installable.
+- `manifest.webmanifest` : identité et paramètres d'installation.
+- `sw.js` : cache de l'application pour un lancement hors connexion après première visite.
+- `icons/` : icônes PWA.
+
+## Publication
+Déployer **tout le contenu** de ce dossier sur un hébergement HTTPS (par exemple Cloudflare Pages).
+Ne pas ouvrir le fichier HTML directement depuis le téléphone : l'installation PWA et le service worker nécessitent une origine HTTPS (ou localhost pour les tests).
+
+## Installation
+- Android/Chrome : ouvrir l'adresse HTTPS, puis utiliser « Installer l'application » si le bouton apparaît, ou le menu du navigateur > Installer l'application / Ajouter à l'écran d'accueil.
+- iPhone/iPad : ouvrir l'adresse dans Safari > Partager > Sur l'écran d'accueil.
+
+## Données et confidentialité
+Les données saisies restent dans le stockage local du navigateur/appareil (`localStorage`). Elles ne sont pas transmises automatiquement à ANKIRA.
+L'application d'origine conserve ses fonctions d'export JSON et d'import JSON : le client doit exporter et transmettre volontairement sa sauvegarde pour permettre une analyse.
+Les données ne sont pas synchronisées entre appareils. En cas d'effacement des données du navigateur, une sauvegarde exportée est nécessaire pour les restaurer.
+
+## Mise à jour
+Lors d'une nouvelle version, remplacer les fichiers hébergés et incrémenter `CACHE_NAME` dans `sw.js` (ex. `ankira-eau-v2`) pour forcer le renouvellement du cache.
